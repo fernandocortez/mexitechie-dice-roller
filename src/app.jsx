@@ -66,11 +66,11 @@ export function App() {
     setIsViewOptionsShown(!isViewOptionsShown);
   };
 
-  const updateOptionsValueByKey = (option) => {
-    return (e) => {
+  const updateOptionsValueByKey = (option, value) => {
+    return () => {
       setOptions(
         produce((options) => {
-          options[option] = e.target.value;
+          options[option] = value;
         })
       );
     };
@@ -85,7 +85,7 @@ export function App() {
             <input
               checked={options.alignAddDiceButtons === 'left'}
               name="align-dice-buttons"
-              onInput={updateOptionsValueByKey('alignAddDiceButtons')}
+              onInput={updateOptionsValueByKey('alignAddDiceButtons', 'left')}
               type="radio"
               value="left"
             />
@@ -95,7 +95,7 @@ export function App() {
             <input
               checked={options.alignAddDiceButtons === 'right'}
               name="align-dice-buttons"
-              onInput={updateOptionsValueByKey('alignAddDiceButtons')}
+              onInput={updateOptionsValueByKey('alignAddDiceButtons', 'right')}
               type="radio"
               value="right"
             />
@@ -107,7 +107,10 @@ export function App() {
             Reverse dice buttons:&nbsp;
             <input
               checked={options.reverseAddDiceButtons}
-              onInput={updateOptionsValueByKey('reverseAddDiceButtons')}
+              onInput={updateOptionsValueByKey(
+                'reverseAddDiceButtons',
+                !options.reverseAddDiceButtons
+              )}
               type="checkbox"
             />
           </label>
@@ -117,9 +120,9 @@ export function App() {
           Align control buttons:
           <label>
             <input
-              checked={options.alignDiceControls}
+              checked={options.alignDiceControls === 'left'}
               name="align-dice-controls"
-              onInput={updateOptionsValueByKey('alignDiceControls')}
+              onInput={updateOptionsValueByKey('alignDiceControls', 'left')}
               type="radio"
               value="left"
             />
@@ -127,9 +130,9 @@ export function App() {
           </label>
           <label>
             <input
-              checked={options.alignDiceControls}
+              checked={options.alignDiceControls === 'right'}
               name="align-dice-controls"
-              onInput={updateOptionsValueByKey('alignDiceControls')}
+              onInput={updateOptionsValueByKey('alignDiceControls', 'right')}
               type="radio"
               value="right"
             />
@@ -141,7 +144,10 @@ export function App() {
             Reverse dice buttons:&nbsp;
             <input
               checked={options.reverseDiceControls}
-              onInput={updateOptionsValueByKey('reverseDiceControls')}
+              onInput={updateOptionsValueByKey(
+                'reverseDiceControls',
+                !options.reverseDiceControls
+              )}
               type="checkbox"
             />
           </label>
