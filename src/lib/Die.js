@@ -34,8 +34,8 @@ export class Die {
   /**
    * @param {number} result The rolled result of the die
    */
-  set result(result) {
-    this.#result = Math.floor(result);
+  updateResult(result) {
+    return new Die(this.#sides, result);
   }
 
   /**

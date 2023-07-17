@@ -37,11 +37,11 @@ export function App() {
 
   /** @param {number} index The index of the die in the array to be re-rolled */
   const rollDie = (index) => {
-    const sides = dice[index].sides;
-    const result = getDieRoll(sides);
+    const die = dice[index];
+    const result = getDieRoll(die.sides);
     setDice(
       produce((dice) => {
-        dice[index].result = result;
+        dice[index] = die.updateResult(result);
       })
     );
   };
@@ -52,7 +52,8 @@ export function App() {
     setDice(
       produce((dice) => {
         newDiceResults.forEach((result, index) => {
-          dice[index].result = result;
+          const die = dice[index];
+          dice[index] = die.updateResult(result);
         });
       })
     );
