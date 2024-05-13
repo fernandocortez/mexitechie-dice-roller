@@ -5,7 +5,7 @@ import { Die } from './lib/Die';
 import { getDiceResults, getDieRoll } from './lib/generators';
 
 /** @readonly @type {number[]} */
-const polyhedrals = [4, 6, 8, 10, 12, 20, 100];
+const polyhedrals = [4, 6, 8, 10, 12, 20, 30, 100];
 
 export function App() {
   const [dice, setDice] = useState([]);
