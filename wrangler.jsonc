@@ -1,0 +1,6 @@
+{
+    "name": "dice-roller",
+    "assets": {
+        "directory": "./dist"
+    }
+}
