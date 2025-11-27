@@ -12,6 +12,9 @@
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [5173],
 
+  // Adding shorter alias for pnpm
+  "postCreateCommand": "echo alias pn=pnpm >> ~/.bash_aliases",
+
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
