@@ -1,9 +1,12 @@
 {
-  "name": "Sandbox",
+  "name": "dice-roller [Sandbox]",
   "image": "mcr.microsoft.com/devcontainers/javascript-node",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+			"configureZshAsDefaultShell": true
+		},
     "ghcr.io/devcontainers/features/node:1": {
       "version": "22.22.0"
     }
@@ -13,7 +16,7 @@
   "forwardPorts": [5173],
 
   // Adding shorter alias for pnpm
-  "postCreateCommand": "echo alias pn=pnpm >> ~/.bash_aliases",
+  "postCreateCommand": "echo alias pn=pnpm >> ~/.zshrc",
 
   // Configure tool-specific properties.
   "customizations": {
