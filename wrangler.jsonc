@@ -1,6 +1,7 @@
 {
-    "name": "dice-roller",
+    "name": "mexitechie-dice-roller",
     "assets": {
         "directory": "./dist"
-    }
+    },
+    "compatibility_date": "2025-12-11"
 }
